@@ -33,8 +33,10 @@ jobs:
       - name: Install Dependencies
         run: pip install cython kivy
         
-      - name: Run Buildozer to build APK
+     - name: Run Buildozer to build APK (Forced Installation)
         run: |
+          # Erzwingt die Installation/Aktualisierung der benötigten Android Tools (SDK/NDK)
+          buildozer android update
           buildozer android debug
 
       # 3. Generischer Pfad für den APK Upload
