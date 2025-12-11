@@ -28,9 +28,21 @@ jobs:
       - name: Install Dependencies
         run: pip install cython kivy
         
-      - name: Run Buildozer to build APK
-        run: |
-          buildozer android debug
+      
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Install Android Build Tools
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
       - name: Run Buildozer to build APK
         run: |
