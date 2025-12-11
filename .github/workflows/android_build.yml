@@ -24,6 +24,13 @@ jobs:
 
       - name: Install Buildozer
         run: pip install buildozer
+        
+      - name: Install Dependencies
+        run: pip install cython kivy
+        
+      - name: Run Buildozer to build APK
+        run: |
+          buildozer android debug
 
       - name: Run Buildozer to build APK
         run: |
