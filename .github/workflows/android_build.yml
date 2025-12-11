@@ -14,25 +14,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install Flet
-        run: pip install flet
-
-      - name: Install Buildozer
-        run: pip install buildozer
-        
-      - name: Install Dependencies
-        run: pip install cython kivy
-        
-      
-
-      - name: Checkout Code
-        uses: actions/checkout@v4
-        
+      # 1. FIX für Aidl/Android Build Tools Fehler
       - name: Install Android Build Tools
         uses: actions/setup-java@v4
         with:
@@ -44,10 +26,18 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install Flet and Buildozer
+        run: pip install flet buildozer
+
+      # 2. FIX für Cython Fehler (manuelle Installation)
+      - name: Install Dependencies
+        run: pip install cython kivy
+        
       - name: Run Buildozer to build APK
         run: |
           buildozer android debug
 
+      # 3. Generischer Pfad für den APK Upload
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
