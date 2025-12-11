@@ -4,7 +4,7 @@ title = Commander Tracker
 package.name = commander_tracker
 package.domain = de.MagicPointApp # <--- PASSE DEINE KENNUNG AN!
 source.dir = .
-requirements = python3, flet, json
+requirements = python3, flet, json, cython
 # Versionsnummern
 version = 1.0.0
 # App-Name

@@ -33,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: CommanderTracker-APK
-          path: bin/commander-tracker-1.0.0-armeabi-v7a-debug.apk
+          path: bin/*.apk
